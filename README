@@ -1,0 +1,35 @@
+Summary:
+    Goal of this recess project was to construct a pop quiz game using the Python language. This project consists of two different scripts: 
+    one that contains questions, answers, correct answers, and a pairing method, and another that handles the logistics of the quiz itself.
+
+    Some of the concepts learned here include how to manage function parameters and arguments in Python, import other scripts/files/built-in
+    features, and how to create a more clean, functional user input system.
+
+questiongloss.py:
+    Standing for Question Glossary, this script contains the questions, answers, and correct answers to questions alongside the chosen pairing system
+    that keeps everything together. To explain further, there is a list called "groups" and it goes from 0 to 24. It is used in the main quiz script
+    under the quiz() function to keep questions, answers, and correct answers together then shuffle the order of the questions. There is a for loop
+    after that displays the question and its respective answer choices. 
+    
+    If another question and set of answers are put into the glossary, then the "groups" list needs to increase. In other words, if one more question is 
+    added as of right now, then the "groups" needs to go from 0 to 25 for a total of 26 questions.
+
+    The questions, correct answers, and ideas for questions and correct answers were found on https://www.mentimeter.com/blog/meetings/quiz-questions.
+
+quizgame.py
+    This is the script responsible for the quiz game. When it is ran, it'll prompt the user to input a number from 1 to the max number of questions.
+    Entering a number less than 1 or greater than the max number will print a message reminding the user of the rule then asking for input again.
+    Entering anything that isn't a number will print a similar message and lead to the same thing. The bool, "desired_ans", is set to false to allow
+    for a while loop, eventually becoming true when the user inputs an acceptable integer. This is all handled under the first function, max_questions().
+
+    The function quiz() is responsible for displaying the questions and taking user input. It'll keep track of the number of correct and incorrect answers,
+    guessed answers and quiz answers via separate lists, and the current question number. It runs a for loop based on "group" in "groups" where it will print
+    the questions and their respective answer choices while reading user input. The user should enter "a, b, c, d" or "A, B, C, D" for their answers. Anything
+    else is considered incorrect.
+
+    There is an embedded if statement in the end of the for loop which states if the question number is greater than the questions the user wanted to answer,
+    it will end the quiz.
+
+    The function end_quiz() prints the number of correct answers, incorrect answers, the correct answers corresponding to each question, and then the user's
+    answers. It will then prompt the user to either enter "yes" or "no" to continue the quiz. If the user enters "yes", then the max_questions() function is called.
+    Otherwise, if the user enters "no", then the script prints "Goodbye!" and then calling quit().
